@@ -29,10 +29,10 @@ app.use(Express.json());
 app.use(Express.urlencoded({ extended: false }));
 
 app.get("/", (req: Request, resp: Response) => {
-  resp.status(400).json({ message: "Welcome to SnapWire server" });
+  resp.status(200).json({ message: "Welcome to SnapWire server" });
 });
 
 app.use("/api/v1", apiRoutes);
 app.listen(SERVER_CONFIG.port, () => {
-  console.log(`Server listen on port: ${SERVER_CONFIG.port}`);
+  console.log(`Server listening on port: ${SERVER_CONFIG.port}`);
 });

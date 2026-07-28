@@ -4,9 +4,12 @@ const createClientMongo = (): MongoClient => {
   if (clientSaved) {
     return clientSaved;
   }
-  const uri: string =
-    process.env.DB_URL_MONGO ??
-    "mongodb+srv://davz42:1kfmibro86662@cluster0.klylabv.mongodb.net/Snapwire";
+  const uri: string | undefined = process.env.DB_URL_MONGO;
+
+  if (!uri) {
+    throw new Error("DB_URL_MONGO is required");
+  }
+
   const client: MongoClient = new MongoClient(uri, {
     maxPoolSize: 100,
     minPoolSize: 20,
@@ -16,12 +19,8 @@ const createClientMongo = (): MongoClient => {
     console.log("Mongo Database Connection established");
   });
 
-  client.on("acquire", () => {
-    console.log("xd");
-  });
-
   client.on("disconnected", () => {
-    console.log("disconnected");
+    console.log("Mongo Database Connection disconnected");
   });
   return client;
 };

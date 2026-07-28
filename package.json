@@ -1,16 +1,19 @@
 {
-  "name": "backend",
+  "name": "snapwire-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "./dist/src/app.js",
-  "scripts": {
-    "build": "npx tsc",
-    "dev": "ts-node-dev --ignore-watch node_modules --respawn ./src/app.ts",
-    "start": "node  ./dist/src/app.js"
+  "description": "TypeScript and Express backend API for the SnapWire social network.",
+  "main": "./dist/app.js",
+  "engines": {
+    "node": ">=20 <26"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --ignore-watch node_modules --respawn ./src/app.ts",
+    "start": "node ./dist/app.js"
+  },
+  "keywords": ["api", "backend", "express", "mongodb", "social-network"],
+  "author": "suaadev",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

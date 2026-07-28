@@ -6,7 +6,7 @@ import { rateLimit } from "express-rate-limit";
 const limiter = rateLimit({
   windowMs: 1000,
   limit: 1,
-  message: "fuck you",
+  message: "Too many like requests. Please try again shortly.",
 });
 
 const likeRoutes = Router();
